@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "223178606994",
+    "project_id": "easymeds-database",
+    "storage_bucket": "easymeds-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:223178606994:android:cae7124fb743e9271a594b",
+        "android_client_info": {
+          "package_name": "com.example.medcs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "223178606994-509vs3sp7kdi9cpb4gv5oa46tp4s4vkt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medcs",
+            "certificate_hash": "4c2f6e35d893a7041f51bb116f99fbda20cab76a"
+          }
+        },
+        {
+          "client_id": "223178606994-ol765l716mcp77dluki22h1nk91bsoml.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRoNmEarVA9KN0cYXPoneUrhpIQsyCmRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "223178606994-ol765l716mcp77dluki22h1nk91bsoml.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "223178606994-3ulviq5fg3o6grkgm5guk7jopbuervvd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.medcs"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:223178606994:android:861b6722cd2b147a1a594b",
+        "android_client_info": {
+          "package_name": "com.example.medcs_dashboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "223178606994-ol765l716mcp77dluki22h1nk91bsoml.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRoNmEarVA9KN0cYXPoneUrhpIQsyCmRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "223178606994-ol765l716mcp77dluki22h1nk91bsoml.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "223178606994-3ulviq5fg3o6grkgm5guk7jopbuervvd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.medcs"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

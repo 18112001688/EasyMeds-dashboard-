@@ -1,16 +1,13 @@
-# medcs_dashboard
+# EasyMeds Dashboard
 
-A new Flutter project.
+EasyMeds Dashboard is a web-based administration tool developed using Flutter for web and Firebase as the backend database.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **User Management:** Manage user accounts, including registration, authentication, and profile management.
+- **Prescription Management:** View and manage prescriptions uploaded by users, including approval and fulfillment status.
+- **Medication Inventory:** Monitor and update the inventory of available medications.
+- **Dashboard Analytics:** Access insightful analytics and visualizations to track user activity, prescription trends, and inventory status.
+- **Firebase Integration:** Seamlessly integrates with Firebase for real-time data synchronization and secure storage.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

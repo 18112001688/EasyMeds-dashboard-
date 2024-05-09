@@ -16,9 +16,9 @@ abstract class StylesLight {
 
   static const titleRegualar22 = TextStyle(
       fontSize: 22,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.bold,
       fontFamily: 'inter',
-      color: AppColors.secondryBlack);
+      color: Colors.black);
   static const bodyLarge17 = TextStyle(
     fontSize: 17,
     fontWeight: FontWeight.w500,
@@ -106,7 +106,7 @@ abstract class StylesDark {
     fontSize: 17,
     fontWeight: FontWeight.w600,
     fontFamily: 'inter',
-    color: AppColors.secondryLight,
+    color: Colors.black,
   );
   static const bodyMeduim15 = TextStyle(
     fontSize: 15,

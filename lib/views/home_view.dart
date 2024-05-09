@@ -28,12 +28,6 @@ class HomeView extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'A quick overview of data',
-          style: StylesLight.titleRegualar22,
-        ),
-      ),
       body: StreamBuilder<List<ProductsModel>>(
         stream: Provider.of<ProductProvider>(context).fetchProductsAsStream(),
         builder: (context, snapshot) {
@@ -72,7 +66,7 @@ class HomeView extends StatelessWidget {
                         child: Column(
                           children: [
                             Text(
-                              'Most sailed categories',
+                              'Most sold categories',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: size.width * 0.02,

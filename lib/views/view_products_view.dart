@@ -35,53 +35,55 @@ class ViewProductsView extends StatelessWidget {
 
             return products.isNotEmpty
                 ? SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
                     child: DataTable(
                       border: TableBorder.all(width: 1, color: Colors.black),
                       columns: const [
                         DataColumn(
                             label: Text(
                           'Title',
-                          style: StylesDark.titleRegualar22,
+                          style: StylesDark.bodyLarge17SemiBold,
                         )),
                         DataColumn(
                             label: Text(
                           'price',
-                          style: StylesDark.titleRegualar22,
+                          style: StylesDark.bodyLarge17SemiBold,
                         )),
                         DataColumn(
                             label: Text(
                           'Volume',
-                          style: StylesDark.titleRegualar22,
+                          style: StylesDark.bodyLarge17SemiBold,
                         )),
                         DataColumn(
                             label: Text(
                           'category',
-                          style: StylesDark.titleRegualar22,
+                          style: StylesDark.bodyLarge17SemiBold,
                         )),
                         DataColumn(
                             label: Text(
                           'Inventory quantity',
-                          style: StylesDark.titleRegualar22,
+                          style: StylesDark.bodyLarge17SemiBold,
                         )),
 
                         DataColumn(
                             label: Text(
                           'Edit product',
-                          style: StylesDark.titleRegualar22,
+                          style: StylesDark.bodyLarge17SemiBold,
                         )),
 
                         //
                         DataColumn(
                             label: Text(
                           'Delete product',
-                          style: StylesDark.titleRegualar22,
+                          style: StylesDark.bodyLarge17SemiBold,
                         )),
                       ],
                       rows: products.map((product) {
                         return DataRow(
                           cells: [
-                            DataCell(Text(product.productTitle)),
+                            DataCell(Text(
+                              product.productTitle,
+                              style: StylesDark.bodyMeduimGrey15,
+                            )),
                             DataCell(Text(product.productPrice.toString())),
                             DataCell(Text(product.productVolume)),
                             DataCell(Text(product.productCategory)),

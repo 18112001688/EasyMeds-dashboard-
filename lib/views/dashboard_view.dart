@@ -4,11 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:medcs_dashboard/core/utlity/styles.dart';
 import 'package:medcs_dashboard/models/product_model.dart';
 import 'package:medcs_dashboard/providers/product_provider/product_provider.dart';
-import 'package:medcs_dashboard/views/accepte_declined_orders_view.dart';
 import 'package:medcs_dashboard/views/add_product_view.dart';
 import 'package:medcs_dashboard/views/home_view.dart';
 import 'package:medcs_dashboard/views/prescriptions_view.dart';
-import 'package:medcs_dashboard/views/report_view.dart';
 import 'package:medcs_dashboard/views/view_products_view.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:provider/provider.dart';
@@ -28,11 +26,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   final List<Widget> _widgetOptions = const [
     HomeView(),
-    ReportView(),
     PrescriptionsView(),
     AddProductView(),
     ViewProductsView(),
-    AcceptedOrDeclinedOrdersView()
+    // AcceptedOrDeclinedOrdersView()
   ];
   void fetchFCT() async {
     final productProvider =
@@ -136,12 +133,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   style: StylesLight.bodyLarge17SemiBold,
                 ),
               ),
-              const NavigationRailDestination(
-                  icon: Icon(Icons.inventory),
-                  label: Text(
-                    "Inventory",
-                    style: StylesLight.bodyLarge17SemiBold,
-                  )),
+              // const NavigationRailDestination(
+              //     icon: Icon(Icons.inventory),
+              //     label: Text(
+              //       "Inventory",
+              //       style: StylesLight.bodyLarge17SemiBold,
+              //     )),
               const NavigationRailDestination(
                 icon: Icon(Icons.bar_chart),
                 label: Text(
@@ -165,10 +162,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                       child: const Icon(Icons.view_compact)),
                   label: const Text("View Products")),
-              const NavigationRailDestination(
-                  padding: EdgeInsets.only(top: 50),
-                  icon: Icon(Icons.check),
-                  label: Text("Accepted Orders")),
+              // const NavigationRailDestination(
+              //     padding: EdgeInsets.only(top: 50),
+              //     icon: Icon(Icons.check),
+              //     label: Text("Accepted Orders")),
             ],
 
             selectedIndex:

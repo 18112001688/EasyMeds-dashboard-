@@ -8,7 +8,8 @@ class OrderProvider with ChangeNotifier {
   int acceptedOrdersCount = 0;
   int declinedOrdersCount = 0;
 
-  Future<void> acceptOrder(String email, BuildContext context) async {
+  Future<void> acceptOrderForPrescription(
+      String email, BuildContext context) async {
     try {
       // Query Firestore to find the document(s) with the matching email
       final querySnapshot = await FirebaseFirestore.instance
@@ -34,11 +35,63 @@ class OrderProvider with ChangeNotifier {
     }
   }
 
-  Future<void> declineOrder(String email, BuildContext context) async {
+  Future<void> acceptedOrdersForCheckOut(
+      String email, BuildContext context) async {
+    try {
+      // Query Firestore to find the document(s) with the matching email
+      final querySnapshot = await FirebaseFirestore.instance
+          .collection('userCheckoutOrders')
+          .where('userEmail', isEqualTo: email)
+          .get();
+
+      // Iterate over the documents found and delete each one
+      for (final document in querySnapshot.docs) {
+        await document.reference.delete();
+      }
+
+      // Increment accepted orders count
+
+      acceptedOrdersCount++;
+
+      FirebaseFirestore.instance
+          .collection('acceptedOrders')
+          .add({'userEmail': email, 'timestamp': Timestamp.now()});
+      notifyListeners();
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  Future<void> declineOrderForPrescription(
+      String email, BuildContext context) async {
     try {
       // Query Firestore to find the document(s) with the matching email
       final querySnapshot = await FirebaseFirestore.instance
           .collection('prescriptionsImages')
+          .where('userEmail', isEqualTo: email)
+          .get();
+
+      // Iterate over the documents found and delete each one
+      for (final document in querySnapshot.docs) {
+        await document.reference.delete();
+      }
+
+      // Increment declined orders count
+      declinedOrdersCount++;
+      FirebaseFirestore.instance
+          .collection('declinedOrders')
+          .add({'userEmail': email, 'timestamp': Timestamp.now()});
+      notifyListeners();
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  Future<void> declineOrderCheckOut(String email, BuildContext context) async {
+    try {
+      // Query Firestore to find the document(s) with the matching email
+      final querySnapshot = await FirebaseFirestore.instance
+          .collection('userCheckoutOrders')
           .where('userEmail', isEqualTo: email)
           .get();
 

@@ -3,7 +3,7 @@ import 'package:medcs_dashboard/models/accepted_orders.dart';
 import 'package:medcs_dashboard/models/declined_orders.dart';
 import 'package:medcs_dashboard/models/orders.dart';
 import 'package:medcs_dashboard/models/product_model.dart';
-import 'package:medcs_dashboard/providers/order_provider/orders_provider.dart';
+import 'package:medcs_dashboard/providers/order_provider/orders_prescription_provider.dart';
 import 'package:medcs_dashboard/providers/product_provider/product_provider.dart';
 import 'package:medcs_dashboard/widgets/bar_chart.dart';
 import 'package:medcs_dashboard/widgets/pie_chart.dart';

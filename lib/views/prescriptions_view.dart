@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:medcs_dashboard/core/utlity/styles.dart';
 import 'package:medcs_dashboard/models/prescription_model.dart';
 import 'package:intl/intl.dart';
-import 'package:medcs_dashboard/providers/order_provider/orders_provider.dart';
+import 'package:medcs_dashboard/providers/order_provider/orders_prescription_provider.dart';
 import 'package:medcs_dashboard/views/show_image_view.dart';
 import 'package:provider/provider.dart'; // for DateFormat
 
@@ -117,7 +117,7 @@ class PrescriptionsView extends StatelessWidget {
                                 children: [
                                   IconButton(
                                     onPressed: () {
-                                      orderProvider.acceptOrder(
+                                      orderProvider.acceptOrderForPrescription(
                                           data.userEmail, context);
                                     },
                                     icon: const Icon(Icons.check,
@@ -125,7 +125,7 @@ class PrescriptionsView extends StatelessWidget {
                                   ),
                                   IconButton(
                                     onPressed: () {
-                                      orderProvider.declineOrder(
+                                      orderProvider.declineOrderForPrescription(
                                           data.userEmail, context);
                                     },
                                     icon: const Icon(Icons.close,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medcs_dashboard/core/utlity/styles.dart';
 import 'package:medcs_dashboard/models/check_out_orders_model.dart';
-import 'package:medcs_dashboard/providers/order_provider/orders_provider.dart';
+import 'package:medcs_dashboard/providers/order_provider/orders_prescription_provider.dart';
 import 'package:medcs_dashboard/views/show_image_view.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
@@ -55,43 +55,43 @@ class CheckOutOrdersView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Row(
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Column(
-                                      children: [
-                                        CircleAvatar(
-                                          radius: 35,
-                                          backgroundImage:
-                                              NetworkImage(data.userImage),
-                                          backgroundColor: Colors.grey[200],
-                                        ),
-                                        const SizedBox(height: 8),
-                                        Text(
-                                          data.userName,
-                                          style: const TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Text(
-                                          data.userEmail,
-                                          style: const TextStyle(
-                                            fontSize: 16,
-                                          ),
-                                        ),
-                                        Text(
-                                          data.userPhone,
-                                          style: const TextStyle(
-                                            fontSize: 16,
-                                          ),
-                                        ),
-                                      ],
+                                    CircleAvatar(
+                                      radius: 35,
+                                      backgroundImage:
+                                          NetworkImage(data.userImage),
+                                      backgroundColor: Colors.grey[200],
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      data.userName,
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      data.userEmail,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    Text(
+                                      data.userPhone,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                      ),
                                     ),
                                   ],
                                 ),
                                 const Spacer(),
+                                // Delivery address and total price
                                 Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     const Text(
                                       'Delivery Address',
@@ -106,11 +106,20 @@ class CheckOutOrdersView extends StatelessWidget {
                                         fontSize: 16,
                                       ),
                                     ),
+                                    const SizedBox(height: 16),
+                                    Text(
+                                      'Total: ${data.getTotal}', // Assuming getTotal is a property in CheckOutOrder model
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                                   ],
-                                )
+                                ),
                               ],
                             ),
                             const Divider(),
+                            // Items
                             Column(
                               children: data.items.map((item) {
                                 return Padding(
@@ -151,12 +160,13 @@ class CheckOutOrdersView extends StatelessWidget {
                               }).toList(),
                             ),
                             const Divider(),
+                            // Accepted or declined order
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 IconButton(
                                   onPressed: () {
-                                    orderProvider.acceptOrder(
+                                    orderProvider.acceptedOrdersForCheckOut(
                                       data.userEmail,
                                       context,
                                     );
@@ -168,7 +178,7 @@ class CheckOutOrdersView extends StatelessWidget {
                                 ),
                                 IconButton(
                                   onPressed: () {
-                                    orderProvider.declineOrder(
+                                    orderProvider.declineOrderCheckOut(
                                       data.userEmail,
                                       context,
                                     );

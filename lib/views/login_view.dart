@@ -80,7 +80,7 @@ class _LoginViewState extends State<LoginView> {
                             },
                             style: const ButtonStyle(
                               backgroundColor:
-                                  MaterialStatePropertyAll(Colors.orange),
+                                  MaterialStatePropertyAll(Color(0xff283342)),
                             ),
                             child: const Text(
                               'Login',
@@ -110,8 +110,10 @@ class _LoginViewState extends State<LoginView> {
                             offset: Offset(5, 5),
                           ),
                         ]),
-                    child:
-                        SvgPicture.asset('assets/images/login-illustrator.svg'),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 500),
+                      child: SvgPicture.asset('assets/images/Group 2014.svg'),
+                    ),
                   ),
                 ),
               ),

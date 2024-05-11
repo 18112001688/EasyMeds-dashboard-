@@ -5,6 +5,7 @@ import 'package:medcs_dashboard/core/utlity/styles.dart';
 import 'package:medcs_dashboard/models/product_model.dart';
 import 'package:medcs_dashboard/providers/product_provider/product_provider.dart';
 import 'package:medcs_dashboard/views/add_product_view.dart';
+import 'package:medcs_dashboard/views/check_out_order_view.dart';
 import 'package:medcs_dashboard/views/home_view.dart';
 import 'package:medcs_dashboard/views/prescriptions_view.dart';
 import 'package:medcs_dashboard/views/view_products_view.dart';
@@ -26,10 +27,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   final List<Widget> _widgetOptions = const [
     HomeView(),
+    CheckOutOrdersView(),
     PrescriptionsView(),
     AddProductView(),
     ViewProductsView(),
-    // AcceptedOrDeclinedOrdersView()
   ];
   void fetchFCT() async {
     final productProvider =
@@ -109,15 +110,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: Row(
         children: [
           NavigationRail(
-            leading: _isRailExpanded
-                ? const Padding(
-                    padding: EdgeInsets.only(right: 0, top: 100),
-                    child: Column(
-                      children: [],
-                    ),
-                  )
-                : const SizedBox.shrink(),
-
             extended: _isRailExpanded,
             backgroundColor: const Color(0xff283342),
             unselectedIconTheme:
@@ -133,12 +125,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   style: StylesLight.bodyLarge17SemiBold,
                 ),
               ),
-              // const NavigationRailDestination(
-              //     icon: Icon(Icons.inventory),
-              //     label: Text(
-              //       "Inventory",
-              //       style: StylesLight.bodyLarge17SemiBold,
-              //     )),
+              const NavigationRailDestination(
+                  icon: Icon(Icons.inventory),
+                  label: Text(
+                    "Inventory",
+                    style: StylesLight.bodyLarge17SemiBold,
+                  )),
               const NavigationRailDestination(
                 icon: Icon(Icons.bar_chart),
                 label: Text(
@@ -162,10 +154,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                       child: const Icon(Icons.view_compact)),
                   label: const Text("View Products")),
-              // const NavigationRailDestination(
-              //     padding: EdgeInsets.only(top: 50),
-              //     icon: Icon(Icons.check),
-              //     label: Text("Accepted Orders")),
             ],
 
             selectedIndex:

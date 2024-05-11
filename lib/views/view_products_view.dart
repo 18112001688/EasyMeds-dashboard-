@@ -41,40 +41,40 @@ class ViewProductsView extends StatelessWidget {
                         DataColumn(
                             label: Text(
                           'Title',
-                          style: StylesDark.bodyLarge17SemiBold,
+                          style: StylesDark.bodyMeduim15,
                         )),
                         DataColumn(
                             label: Text(
                           'price',
-                          style: StylesDark.bodyLarge17SemiBold,
+                          style: StylesDark.bodyMeduim15,
                         )),
                         DataColumn(
                             label: Text(
                           'Volume',
-                          style: StylesDark.bodyLarge17SemiBold,
+                          style: StylesDark.bodyMeduim15,
                         )),
                         DataColumn(
                             label: Text(
                           'category',
-                          style: StylesDark.bodyLarge17SemiBold,
+                          style: StylesDark.bodyMeduim15,
                         )),
                         DataColumn(
                             label: Text(
                           'Inventory quantity',
-                          style: StylesDark.bodyLarge17SemiBold,
+                          style: StylesDark.bodyMeduim15,
                         )),
 
                         DataColumn(
                             label: Text(
                           'Edit product',
-                          style: StylesDark.bodyLarge17SemiBold,
+                          style: StylesDark.bodyMeduim15,
                         )),
 
                         //
                         DataColumn(
                             label: Text(
                           'Delete product',
-                          style: StylesDark.bodyLarge17SemiBold,
+                          style: StylesDark.bodyMeduim15,
                         )),
                       ],
                       rows: products.map((product) {

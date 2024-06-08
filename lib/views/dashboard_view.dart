@@ -9,7 +9,7 @@ import 'package:medcs_dashboard/views/check_out_order_view.dart';
 import 'package:medcs_dashboard/views/home_view.dart';
 import 'package:medcs_dashboard/views/prescriptions_view.dart';
 import 'package:medcs_dashboard/views/view_products_view.dart';
-import 'package:badges/badges.dart' as badges;
+// import 'package:badges/badges.dart' as badges;
 import 'package:provider/provider.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -105,7 +105,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final productProvider = Provider.of<ProductProvider>(context);
     return Scaffold(
       body: Row(
         children: [
@@ -117,43 +116,39 @@ class _DashboardScreenState extends State<DashboardScreen> {
             unselectedLabelTextStyle: const TextStyle(color: Colors.white),
             selectedIconTheme: IconThemeData(color: Colors.deepPurple.shade900),
             selectedLabelTextStyle: const TextStyle(color: Colors.white),
-            destinations: [
-              const NavigationRailDestination(
+            destinations: const [
+              NavigationRailDestination(
                 icon: Icon(Icons.dashboard),
                 label: Text(
                   "Dashboard",
                   style: StylesLight.bodyLarge17SemiBold,
                 ),
               ),
-              const NavigationRailDestination(
+              NavigationRailDestination(
                   icon: Icon(Icons.inventory),
                   label: Text(
-                    "Inventory",
+                    "Checkout orders",
                     style: StylesLight.bodyLarge17SemiBold,
                   )),
-              const NavigationRailDestination(
+              NavigationRailDestination(
                 icon: Icon(Icons.bar_chart),
                 label: Text(
-                  "Prescriptions",
+                  "Prescriptions orders",
                   style: StylesLight.bodyLarge17SemiBold,
                 ),
               ),
-              const NavigationRailDestination(
+              NavigationRailDestination(
                   padding: EdgeInsets.only(top: 50),
                   icon: Icon(Icons.add),
                   label: Text(
                     "Add Products",
                   )),
               NavigationRailDestination(
-                  icon: badges.Badge(
-                      badgeStyle:
-                          const badges.BadgeStyle(badgeColor: Colors.pink),
-                      badgeContent: Text(
-                        productProvider.getProducts.length.toString(),
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                      child: const Icon(Icons.view_compact)),
-                  label: const Text("View Products")),
+                  padding: EdgeInsets.only(top: 50),
+                  icon: Icon(Icons.view_column_rounded),
+                  label: Text(
+                    "View Products",
+                  )),
             ],
 
             selectedIndex:

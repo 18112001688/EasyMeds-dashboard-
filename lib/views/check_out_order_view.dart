@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:medcs_dashboard/core/utlity/styles.dart';
 import 'package:medcs_dashboard/models/check_out_orders_model.dart';
@@ -16,7 +17,7 @@ class CheckOutOrdersView extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Check Out Orders',
-          style: StylesLight.titleSubHeading28,
+          style: StylesLight.titleRegualar22,
         ),
       ),
       body: StreamBuilder<QuerySnapshot>(
@@ -36,6 +37,21 @@ class CheckOutOrdersView extends StatelessWidget {
             final List<CheckOutOrder> orders = snapshot.data!.docs
                 .map((doc) => CheckOutOrder.fromJson(doc))
                 .toList();
+            if (orders.isNotEmpty) {
+              // Play a sound when a new order is added
+              AudioPlayer()
+                  .play(UrlSource('assets/sounds/level-up-191997.mp3'));
+
+              // Show a notification using SnackBar
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('An order requested'),
+                    backgroundColor: Colors.green,
+                  ),
+                );
+              });
+            }
 
             if (orders.isNotEmpty) {
               return ListView.builder(
@@ -128,24 +144,21 @@ class CheckOutOrdersView extends StatelessWidget {
                                   child: Row(
                                     children: [
                                       GestureDetector(
-                                        onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  DetailScreen(
-                                                image: item.productImage,
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    DetailScreen(
+                                                  image: item.productImage,
+                                                ),
                                               ),
-                                            ),
-                                          );
-                                        },
-                                        child: Image.network(
-                                          item.productImage,
-                                          height: 100,
-                                          width: 55,
-                                          fit: BoxFit.fill,
-                                        ),
-                                      ),
+                                            );
+                                          },
+                                          child: CircleAvatar(
+                                              radius: 50,
+                                              backgroundImage: NetworkImage(
+                                                  item.productImage))),
                                       const SizedBox(width: 8),
                                       Text(
                                         item.productName,

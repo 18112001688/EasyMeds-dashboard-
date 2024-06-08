@@ -43,7 +43,7 @@ class PrescriptionsView extends StatelessWidget {
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                    content: Text('A Prescription order request'),
+                    content: Text('A Prescription requested'),
                     backgroundColor: Colors.green,
                   ),
                 );

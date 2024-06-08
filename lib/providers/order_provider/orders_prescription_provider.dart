@@ -30,6 +30,14 @@ class OrderProvider with ChangeNotifier {
           .collection('acceptedOrders')
           .add({'userEmail': email, 'timestamp': Timestamp.now()});
       notifyListeners();
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Order Accepted successfully'),
+            backgroundColor: Colors.green,
+          ),
+        );
+      }
     } catch (error) {
       rethrow;
     }
@@ -56,6 +64,15 @@ class OrderProvider with ChangeNotifier {
       FirebaseFirestore.instance
           .collection('acceptedOrders')
           .add({'userEmail': email, 'timestamp': Timestamp.now()});
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Order accepted successfully'),
+            backgroundColor: Colors.green,
+          ),
+        );
+      }
+
       notifyListeners();
     } catch (error) {
       rethrow;
@@ -81,6 +98,14 @@ class OrderProvider with ChangeNotifier {
       FirebaseFirestore.instance
           .collection('declinedOrders')
           .add({'userEmail': email, 'timestamp': Timestamp.now()});
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Order declined successfully'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
       notifyListeners();
     } catch (error) {
       rethrow;
@@ -105,6 +130,15 @@ class OrderProvider with ChangeNotifier {
       FirebaseFirestore.instance
           .collection('declinedOrders')
           .add({'userEmail': email, 'timestamp': Timestamp.now()});
+
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Order declined successfully'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
       notifyListeners();
     } catch (error) {
       rethrow;

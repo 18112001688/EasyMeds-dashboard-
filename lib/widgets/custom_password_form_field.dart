@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
-class CustomPassFormField extends StatelessWidget {
+class CustomPassFormField extends StatefulWidget {
   const CustomPassFormField({super.key, required this.controller});
 
   final TextEditingController controller;
+
+  @override
+  State<CustomPassFormField> createState() => _CustomPassFormFieldState();
+}
+
+class _CustomPassFormFieldState extends State<CustomPassFormField> {
+  bool _obsecureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +28,7 @@ class CustomPassFormField extends StatelessWidget {
         ),
       ),
       child: TextFormField(
-        controller: controller,
+        controller: widget.controller,
         validator: (value) {
           if (value == null || value.isEmpty) {
             return "Please Enter a valid Pass";
@@ -29,10 +36,10 @@ class CustomPassFormField extends StatelessWidget {
 
           return null;
         },
-        decoration: const InputDecoration(
-            border: OutlineInputBorder(borderSide: BorderSide.none),
+        decoration: InputDecoration(
+            border:const OutlineInputBorder(borderSide: BorderSide.none),
             hintText: 'Enter your Password ',
-            hintStyle: TextStyle(
+            hintStyle : const TextStyle(
               color: Color(0xffA1A8B0),
               fontFamily: 'inter',
               fontSize: 16,
@@ -42,10 +49,21 @@ class CustomPassFormField extends StatelessWidget {
               fontStyle: FontStyle.normal,
               decoration: TextDecoration.none,
             ),
-            prefixIcon: Icon(
+            prefixIcon:const Icon(
               Icons.lock_outline,
               color: Color(0xffA1A8B0),
+            ),
+            suffixIcon: IconButton(
+              onPressed: () {
+                setState(() {
+                  _obsecureText = !_obsecureText;
+                });
+              },
+              icon: Icon(
+                _obsecureText ? Icons.visibility_off : Icons.visibility,
+              ),
             )),
+        obscureText: _obsecureText,
       ),
     );
   }
